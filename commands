@@ -1,0 +1,8 @@
+#Check Certificate on Website
+curl --insecure -vvI https://site 2>&1 | awk 'BEGIN { cert=0 } / SSL connection/ { cert=1 } // { if (cert) print }'
+#Create named screen
+screen -S {name}
+#Join named screen
+screen -X {name}
+#Get all certificate tree of Website
+openssl s_client -showcerts -connect {site} > file.txt
